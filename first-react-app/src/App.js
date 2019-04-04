@@ -68,13 +68,13 @@ class App extends Component {
   render() {
     const buttonStyle = {
       padding: '8px',
-      color: '#1C89BF',
+      color: '#fff',
       border: '1px solid #FF6663 ',
       borderRadius: '10px',
       textAlign: 'center',
       fontFamily: 'monospace',
       outline: 'none',
-      backgroundColor: 'white',
+      backgroundColor: 'green',
       font: 'inherit',
       cursor: 'pointer'
     }
@@ -111,10 +111,21 @@ class App extends Component {
         // </div>
       );
       
+      buttonStyle.backgroundColor = 'red'
+    }
+
+    let classes = [];
+    if(this.state.persons.length <= 2){
+      classes.push('red');
+    }
+
+    if(this.state.persons.length <= 1){
+      classes.push('bold');
     }
     return (
       <div className="App">
         <h1>Welcome to the React Course!!!</h1>
+        <p className={classes.join(' ')}>It is a course on Udemy that make a complete and total sense on React!</p>
         <button  
           style={buttonStyle} 
           onClick={this.togglePersonsHandler}>SwitchName</button>
